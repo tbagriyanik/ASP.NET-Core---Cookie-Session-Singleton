@@ -1,0 +1,21 @@
+﻿@page "{sil?}"
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Okuma ve Silme";
+}
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+</div>
+<hr />
+
+<p>
+    Çerez (10 dakikalık, tarayıcı kapansa da saklanır) ve 
+    oturum bilgisi (10 dakikalık, tarayıcı kapanana kadar saklanır)
+</p>
+<strong>Çerez</strong> : @Model.cerez
+<br />
+<strong>Oturum</strong> : @Model.oturum
+<hr />
+<p>Oluşturmak için <a href="/Index">tıklatınız</a></p>
+<p>Tümünü silmek için <a href="/Privacy/sil">tıklatınız</a></p>
+

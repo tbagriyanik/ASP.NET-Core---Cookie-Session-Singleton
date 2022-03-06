@@ -1,0 +1,38 @@
+﻿@page "{handler?}"
+@model IndexModel
+@{
+    ViewData["Title"] = "Çerez, Oturum ve Tekil Hizmet";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+</div>
+<hr />
+<form method="post" asp-page-handler="cerezYolla">
+    <strong>Çerez Bilgisi</strong>
+    <input type="text" name="cerez" value="@Model.cerez" />
+    <input type="submit" value="Çerez Yap" />
+</form>
+<hr />
+<form method="post" asp-page-handler="oturumYolla">
+    <strong>Oturum Bilgisi</strong>
+    <input type="text" name="oturum" value="@Model.oturum" />
+    <input type="submit" value="Oturum Bilgisi Kaydet" />
+</form>
+<hr />
+<h5 class="bg-warning text-dark p-2">@Model.durum</h5>
+<hr />
+Çerez (10 dakikalık, tarayıcı kapansa da saklanır)
+<br />
+Oturum bilgisi (10 dakikalık, tarayıcı kapanana kadar saklanır) görmek için <a href="Privacy">tıklatınız</a>
+<hr />
+<strong>Ziyaretçi Sayacı (Singleton - Sunucu kapanana kadar saklanır, jQuery ile güncellenir)</strong>&nbsp;
+<span id="sayac" style="font-size: 16px" class="text-white badge bg-primary text-monospace p-1">...</span>
+
+<script>
+    $(document).ready(function () {
+        setInterval(function () {
+            $('#sayac').load('/_sayac')
+        }, 1000);
+    });
+</script>
